@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { NavBarModule } from "./components/nav-bar/nav-bar.module";
 import { MatSidenavModule } from "@angular/material/sidenav";
 
 @Component({
@@ -9,7 +10,8 @@ import { MatSidenavModule } from "@angular/material/sidenav";
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    MatSidenavModule
+    MatSidenavModule,
+    NavBarModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

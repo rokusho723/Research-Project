@@ -1,8 +1,9 @@
 export interface BlogCard {
   name: string;
-  createdate: string;
+  createDate: string;
   lastUpdated?:string;
   imgLink?:string;
   content:string;
   likes:number;
+  tags:string[];
 }
