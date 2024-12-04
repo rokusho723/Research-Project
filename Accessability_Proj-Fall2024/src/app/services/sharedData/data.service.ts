@@ -12,6 +12,9 @@ export class DataService {
     "Flexbox","tips","beginner","semantic",
     "design","responsive","front-end","user-experience",
     "development","coding","tutorials","modern-web",
+    "React", "Angular", "Vue", "ARIA",
+    "WACG", "color-contrast", "inclusive-design", "security",
+    "GraphQL", "open-source", "web-future", "web-history"
   ];
 
   private dummbyData:BlogData[] = [
