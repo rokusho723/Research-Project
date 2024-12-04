@@ -1,9 +1,25 @@
-.navChip_box{
-  display:grid;
-  grid-column: 1;
+// preset colors
+$primary: #FFFFFF;
+$secondary: #000000;
+$accent: #F2F2F2;
+$tertiary: #007bff;
+$warn: #dc3545;
+$accentDark: #333333;
+$tertiaryDark: #0056b2;
+$warnDark: #b5231d;
 
+.navChip_box{
+  display:flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+hr{
+  margin:10px;
 }
 mat-chip{
   margin-bottom: 5px;
   margin-right: 5px;
+}
+mat-icon{
+  vertical-align: middle;
 }

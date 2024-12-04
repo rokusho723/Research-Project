@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { DataService } from "../../services/sharedData/data.service";
+
+
+import { LiveAnnouncer } from "@angular/cdk/a11y";
 
 @Component({
   selector: 'navBar',
@@ -6,11 +10,31 @@ import { Component } from '@angular/core';
   styleUrl: './nav-bar.component.scss'
 })
 export class NavBarComponent {
-  tags:string[] = [
-    "webdev","JavaScript","HTML","CSS",
-    "accessibility","trends","ES6","Grid",
-    "Flexbox","tips","beginner","semantic",
-    "design","responsive","front-end","user-experience",
-    "development","coding","tutorials","modern-web",
-  ];
+  @Output() routeParent = new EventEmitter<string>();
+  filterTag:string='';
+  tags:string[]=[];
+
+  announcer = inject(LiveAnnouncer);
+
+  constructor(private tagService:DataService){
+    this.tags = tagService.getTags();
+  }
+
+  triggerParentRouting(newRoute:string){
+    this.filterTag = '';
+    this.tagService.setFilterTag(this.filterTag);
+    this.routeParent.emit(newRoute);
+  }
+  filterByTag(tagFilter:string){
+    this.filterTag = tagFilter;
+    this.tagService.setFilterTag(tagFilter);
+
+    if(tagFilter == ''){
+      this.announcer.announce('Blog filter removed');
+    }else{
+      this.announcer.announce('Filtering blogs by '+tagFilter);
+    }
+
+    this.routeParent.emit("")
+  }
 }

@@ -1,7 +1,32 @@
-<div class="navChip_box">
-  <mat-chip>
-    <mat-icon fontIcon="home"></mat-icon>
-    Home</mat-chip>
-    <hr>
-  <mat-chip *ngFor="let item of tags">#{{item}}</mat-chip>
-</div>
+<nav class="navChip_box">
+  <a>
+  <mat-chip
+  (click)="triggerParentRouting('Home')">
+    <mat-icon>home</mat-icon>
+  Home</mat-chip>
+  </a>
+
+  <a>
+  <mat-chip
+  (click)="triggerParentRouting('CreatePost')">
+    <mat-icon>add</mat-icon>
+  Create Post</mat-chip>
+  </a>
+  <hr>
+  <a rel="alternate">
+  <mat-chip
+  *ngIf="filterTag!=''"
+  (click)="filterByTag('')"
+  style="background-color: darkorchid; color: white;"
+  aria-label="remove Filter">
+  <mat-icon>cancel</mat-icon>
+  #{{filterTag}}
+  </mat-chip>
+  </a>
+
+  @for(item of tags; track item){
+    <mat-chip
+    (click)="filterByTag(item)"
+    aria-label="{{item}} tag">#{{item}}</mat-chip>
+  }
+</nav>

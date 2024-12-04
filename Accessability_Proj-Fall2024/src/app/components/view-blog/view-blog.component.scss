@@ -1,0 +1,45 @@
+// preset colors
+$primary: #FFFFFF;
+$secondary: #000000;
+$accent: #F2F2F2;
+$tertiary: #D5AAF9;
+$warn: #dc3545;
+$accentDark: #333333;
+$tertiaryDark: #0056b2;
+$warnDark: #b5231d;
+
+$defaultFont: Arial, Helvetica, sans-serif;
+
+mat-card{
+  background-color:$tertiary;
+  min-height: 80vh;
+  color: $secondary;
+}
+mat-card-header{
+  width: 100%;
+}
+mat-card-content{
+  min-height: 60vh;
+}
+mat-card-subtitle{
+  color: $secondary;
+}
+.name-span{
+  margin-right:10px;
+  border: 2px, solid, $primary;
+  padding-left: 0;
+  padding-bottom: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.title-span{
+  padding: 5px;
+}
+button, mat-chip{
+  margin: 2px;
+}
+pre{
+  font-family: $defaultFont;
+  font-size: large;
+}
