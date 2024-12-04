@@ -1,36 +1,41 @@
 // preset colors
-$primary: #326886;
-$primaryDarker: #142944;
-$primaryLighter: #839fb4;
-$accent: #8293c6;
-$accentDarker: #2b2453;
-$accentLighter: #cfd8dc;
-$tertiary: #d8ade6;
-$warn: #c64968;
-$background: #001633;
+$primary: #FFFFFF;
+$secondary: #000000;
+$accent: #F2F2F2;
+$tertiary: #007bff;
+$warn: #dc3545;
+$accentDark: #333333;
+$tertiaryDark: #0056b2;
+$warnDark: #b5231d;
 
 // centering box
 #background_box {
   margin: 0;
   min-height: 100%;
   min-width: 100%;
-  background-color: $accentLighter;
+  background-color: $accent;
 }
 h1,p{
-  color:$accentDarker;
+  color:$primary;
 }
 // navBar and main content
 .container {
   // border clearly distinguish the border between draeer and main content
-  background: #eee;
+  background: $tertiary;
+  height: 100vh;
 }
 // main content specific
 .content{
+  border-top: 3px solid $accent;
+  border-left: 3px solid $accent;
   padding: 1rem;
   padding-left: 5px;
 }
 // navBar specific
 .navbar{
+  border-top: 3px solid $accent;
+  border-right: 3px solid $accent;
+  background: $tertiary;
   min-width: 6rem;
   padding-left: 15px;
   padding-top: 1rem;

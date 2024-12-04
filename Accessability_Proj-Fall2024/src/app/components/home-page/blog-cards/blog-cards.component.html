@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-card-title-group>
+    <mat-card-title>
+      {{cardInfo.name}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      Created: {{cardInfo.createDate}}
+      <!-- If checks that lastUpdated isn't null and isn't blank
+      <div *ngIf="(cardInfo.lastUpdated ?? '') !== ''">
+        Updated: {{cardInfo.lastUpdated}}
+      </div> -->
+    </mat-card-subtitle>
+    <!-- If check that imgLink isn't blank -->
+    <img mat-card-md-img
+    *ngIf="(cardInfo.imgLink) !== ''"
+    class="card-img"
+    src="{{cardInfo.imgLink}}"
+    alt="Alt img text">
+  </mat-card-title-group>
+
+  <mat-card-content>
+    <p>{{cardInfo.title}}</p>
+  </mat-card-content>
+
+  <mat-card-actions></mat-card-actions>
+
+  <mat-card-footer>
+    <mat-chip
+    disableRipple= "true"
+    highlighted= "false"
+    *ngFor= "let tag of cardInfo.tags"
+    color= "primary">
+    #{{tag}}</mat-chip>
+  </mat-card-footer>
+</mat-card>

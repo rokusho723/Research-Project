@@ -1,8 +1,9 @@
-<div id="background_box">
+<div id="background_box" cdkTrapFocus [cdkTrapFocusAutoCapture]="true">
   <!-- divides page into 2, sideNav and content -->
   <mat-drawer-container class="container">
     <mat-drawer mode="side" opened class="navbar">
-      <navBar></navBar>
+      <navBar
+      (routeParent)="onroutingParent($event)"></navBar>
     </mat-drawer>
     <mat-drawer-content class="content">
       <!-- routing display to allow for lazy loading -->

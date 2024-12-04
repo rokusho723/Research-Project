@@ -1,0 +1,44 @@
+// preset colors
+$primary: #FFFFFF;
+$secondary: #000000;
+$accent: #F2F2F2;
+$tertiary: #007bff;
+$warn: #dc3545;
+$accentDark: #333333;
+$tertiaryDark: #0056b2;
+$warnDark: #b5231d;
+
+.title-box{
+  h1, hr{
+    min-width: 80vw;
+    width: 100%;
+    color: $primary;
+    justify-self: center;
+    text-align: center;
+  }
+}
+.blogForm{
+  min-width: 50vw;
+  max-width: 70vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: $secondary;
+
+  mat-form-field, mat-label{
+    color: $primary;
+    min-width: 50%;
+  }
+  textarea{
+    min-height: 150px;
+  }
+  button{
+    min-width: 25%;
+  }
+  .clear-button{
+    margin-top: 10px;
+  }
+}

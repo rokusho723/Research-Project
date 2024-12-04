@@ -1,7 +1,10 @@
-<div class="cardBox">
-  <blog-cards class="cards"
-  *ngFor="let testInfo of testingInfo"
-
-  [cardInfo]="testInfo">
-  </blog-cards>
-</div>
+<main class="cardBox">
+  @for(blog of displayInfo; track blog){
+    <a (click)="navigateToViewPage(blog)">
+    <blog-cards
+    class="cards"
+    *ngIf="ifFilter(blog.tags)"
+    [cardInfo]="blog"></blog-cards>
+    </a>
+  }
+</main>

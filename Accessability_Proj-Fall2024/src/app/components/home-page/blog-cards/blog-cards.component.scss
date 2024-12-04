@@ -7,3 +7,15 @@ $warn: #dc3545;
 $accentDark: #333333;
 $tertiaryDark: #0056b2;
 $warnDark: #b5231d;
+
+mat-card{
+  background-color: $secondary;
+  margin-bottom: 8px;
+  padding: 10px;
+}
+mat-card-subtitle{
+  color: $accent;
+}
+mat-chip{
+  margin: 2px;
+}

@@ -1,0 +1,84 @@
+<header>
+  <div class="title-box">
+    <h1>
+      Create Post
+      <hr>
+    </h1>
+  </div>
+</header>
+<main>
+  <form class="blogForm" [formGroup]="blog" #blogForm="ngForm">
+
+    <mat-form-field color="primary">
+      <mat-label>Name</mat-label>
+      <input matInput required
+      formControlName="name"
+      floatLabel="true"
+      aria-label="Poster's Name">
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput required
+      formControlName="title"
+      floatLabel="true"
+      aria-label="Post Description">
+    </mat-form-field>
+
+
+    <mat-form-field color="primary">
+      <mat-label>Body</mat-label>
+      <textarea matInput required
+      formControlName="content"
+      floatLabel="true"
+      aria-label="Post Textarea"></textarea>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label>Tags</mat-label>
+      <mat-chip-grid #chipGrid aria-label="Tag selection">
+        @for (tag of tagGridList; track tag) {
+          <mat-chip-row (removed)="removeTag(tag)">
+            {{tag}}
+            <button matChipRemove [attr.aria-label]="'remove ' + tag">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        }
+      </mat-chip-grid>
+
+      <input #tagInput
+      placeholder="New Tag..."
+      [formControl]="formCtrl"
+      [matChipInputFor]="chipGrid"
+      [matAutocomplete]="auto"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="addTag($event)"
+      aria-label="Post Tags, Autocomplete enabled"/>
+
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedTag($event)">
+      <mat-option
+      *ngFor="let tag of filteredTags | async"
+      [value]="tag">#{{tag}}</mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+
+    <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    value="submit"
+    [disabled]="!blogForm.form.valid"
+    (click)="formSubmit()">Submit</button>
+
+    <button
+    mat-raised-button
+    class="clear-button"
+    color="primary"
+    (click)="resetForm()">Clear</button>
+
+  </form>
+</main>
