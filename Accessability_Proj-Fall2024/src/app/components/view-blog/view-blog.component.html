@@ -27,7 +27,7 @@
   </mat-card-actions>
   <mat-card-footer>
     @for(chip of _blog?.tags; track chip){
-      <mat-chip>#{{chip}}</mat-chip>
+      <mat-chip disableRipple="true">#{{chip}}</mat-chip>
     }
   </mat-card-footer>
 </mat-card>

@@ -83,6 +83,10 @@ export class CreatePostComponent {
   get tags(){ return this.blog.get('tags') as FormArray }
   resetForm(): void{
     this.initializeForm();
+    while(this.tagGridList.length!=0){
+      this.tagGridList.pop();
+    }
+    this.tagGridList.push('#accessibility');
   }
   formSubmit(): void{
     // submiting form data
@@ -91,6 +95,7 @@ export class CreatePostComponent {
       console.log(this.blog.value)
       this.announcer.announce("Blog Posted");
     }
+    this.resetForm();
   }
 
   addTag(event: MatChipInputEvent): void {

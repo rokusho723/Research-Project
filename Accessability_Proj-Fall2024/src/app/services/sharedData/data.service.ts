@@ -55,7 +55,7 @@ export class DataService {
       "Flexbox"
     ]
   },{
-    name: "Jake",
+    name: "Josh",
     createDate: "12 August 2024",
     imgLink: "",
     title: "A beginner's guide to JavaScript ES6 features.",

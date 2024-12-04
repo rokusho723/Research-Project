@@ -3,7 +3,16 @@ import { Observable } from "rxjs";
 
 import { BlogData } from "../../models/blog-data.model";
 
-import { Firestore, collection, collectionData, addDoc, CollectionReference, DocumentReference } from "@angular/fire/firestore";
+import {
+  Firestore,
+  collection,
+  collectionData,
+  addDoc,
+  CollectionReference,
+  DocumentReference,
+  query,
+  orderBy
+} from "@angular/fire/firestore";
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +26,10 @@ export class DatabasePullService {
   // initialize Firestore, scalable NoSQL database
   constructor() {
     this.blogCollection = collection(this.firestore, 'blogs');
-
-    this.blogs$ = collectionData(this.blogCollection) as Observable<BlogData[]>;
+    const sortedCollection = query(this.blogCollection, orderBy('name', 'asc'));
+    this.blogs$ = collectionData(sortedCollection) as Observable<BlogData[]>;
   }
   addBlog(newBlog:BlogData){
-    addDoc(this.blogCollection, newBlog)
-    .then((documentReference:DocumentReference)=>{
-      console.log(documentReference);
-    });
+    addDoc(this.blogCollection, newBlog);
   }
 }
